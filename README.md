@@ -1,5 +1,5 @@
 # react-with-aspnet
-React front-end with ASP.NET backend.
+React front-end with ASP.NET Core backend.
 
 A study collaboration between potato707 (Back-end) and valryanb (Front-end).
 
