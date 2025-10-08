@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+background: #F6D4BA linear-gradient(to bottom, #F6D4BA, #FEFADC) top / cover no-repeat;
+font-size: 16px;
+font-family: "Krub", sans-serif;
+}
+
+.ranchers-regular {
+  font-family: "Ranchers", sans-serif;
+}
+
+.krub-regular {
+  font-family: "Krub", sans-serif;
+}
+
+.match-card {
+    position: relative;
+    background: #FEFADC;
+    box-shadow: 0 4px 4px 0 rgba(111, 48, 0, 0.25);
+    height: 656px;
+    width: 330px; 
+    border-radius: 40px;
+    padding: 45px 0 10px 0;
+    justify-self: center;
+}
+
+.match-card > .cat-head-frame {
+    display: block;
+    width: 317px;
+    height: 258px;
+    mask-image: url(/Cat\ Head.svg);
+    margin: 0 auto;
+}
+
+.match-card > h1 {
+    font-size: 2.25rem;
+    font-family: "Ranchers", sans-serif;
+    font-weight: 500;
+}
+
+.attributes {
+    padding: 15px 0 0 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.attributes li {
+    background: #B4ADEA;
+    border-radius: 15px;
+    padding: 5px 15px;
+    color: #FEFADC;
+    min-width: 80px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.profile, .match-card > h1, .attributes {
+    max-height: 205px;
+    width: 260px;
+    margin: 10px 30px;
+}
+
+.profile {    
+    min-height: 205px;
+    font-size: 1rem;
+    line-height: 18px;
+    padding: 5px 0;
+    overflow: hidden;
+}
+
+.burst {
+    position: absolute;
+    right: 0;
+    max-width: 110px;
+    height: 108px;
+    mask-image: url(/Star.svg);
+    background: #F3B391 no-repeat;
+    z-index: 9;
+}
+
+.tagline {
+    padding: 39px 10px;
+    transform: rotate(15deg);  
+    font-weight: 800;
+    text-align: center;  
+    line-height: 16px;
+    font-size: .95rem;
+    max-width: 113px;
+}
+
+/* // navigation swipe bar */
+
+#swipe-bar {
+    width: 253px;
+    height: 60px;
+    border-radius: 30px;
+    background: #FFF4D9;
+    border: 5px solid #fcEEd1;
+    box-shadow: 2px 2px 20px 8px #FEFADC,
+    inset -12px -12px 12px 0 #FEFADC,
+    inset 5px 10px 12px 0 #F6D4BA;
+    justify-self: center;
+    margin: 50px 0;
+}
+
+#paw {
+    cursor: grab;
+    background-image: url(/Paw.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 107px;
+    height: 105px;
+    justify-self: center;
+    margin-top: -30px;
+}
