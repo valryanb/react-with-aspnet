@@ -10,6 +10,18 @@ font-size: 16px;
 font-family: "Krub", sans-serif;
 }
 
+#feed {
+    display: flex;
+    padding: 2rem 0;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+}
+
+#root {
+    height: 200vh;
+}
+
 .ranchers-regular {
   font-family: "Ranchers", sans-serif;
 }
@@ -19,7 +31,7 @@ font-family: "Krub", sans-serif;
 }
 
 .match-card {
-    position: relative;
+    position: absolute;
     background: #FEFADC;
     box-shadow: 0 4px 4px 0 rgba(111, 48, 0, 0.25);
     height: 656px;
@@ -30,11 +42,37 @@ font-family: "Krub", sans-serif;
     margin: 1em;
 }
 
+._0 {
+    z-index: 3;
+}
+
+._1 {
+    z-index: 2;
+    transform: rotate(15deg) scale(0.9);
+    margin-left: 200px;
+    
+}
+
+._2 {
+    z-index: 1;
+    transform: rotate(-15deg) scale(0.9);
+    margin-right: 200px;
+    
+}
+
+._1, ._2 {
+    opacity: 0.65;
+}
+
 .match-card > .cat-head-frame {
     display: block;
     width: 317px;
     height: 258px;
     mask-image: url(/Cat\ Head.svg);
+    background-image: url(/Default\ Icon.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: -25px;
     margin: 0 auto;
 }
 
@@ -62,7 +100,7 @@ font-family: "Krub", sans-serif;
 .attributes li {
     background: #B4ADEA;
     border-radius: 15px;
-    padding: 5px 15px;
+    padding: 5px 10px;
     color: #FEFADC;
     min-width: 80px;
     text-align: center;
@@ -116,7 +154,8 @@ font-family: "Krub", sans-serif;
     inset -12px -12px 12px 0 #FEFADC,
     inset 5px 10px 12px 0 #F6D4BA;
     justify-self: center;
-    margin: 50px 0;
+    position: static;
+    margin-top: 750px;
 }
 
 #paw {
@@ -128,4 +167,30 @@ font-family: "Krub", sans-serif;
     height: 105px;
     justify-self: center;
     margin-top: -30px;
+}
+
+@keyframes cardShuffle {
+    100% {
+        transform: rotate(0deg) scale(1);
+        z-index: 3;
+        margin: 0 0;
+        opacity: 100%;
+    };
+}
+
+@keyframes cardLiked {
+    100% {
+        margin-top: -100px;
+        opacity: 0%;
+    }
+}
+
+/* shuffle left and right cards */
+.top {
+animation: cardShuffle 1s ease-out forwards;
+}
+
+/* selected match */
+.match {
+animation: cardLiked 1s ease-out backwards;
 }

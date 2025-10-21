@@ -1,6 +1,6 @@
 export default function Card(props){
-  const catName = props.name;
- const catTraits = props.temperament.split(',');
+ const catName = props.name;
+ const catTraits = props.temperament.split(','); 
  
  function getTagline(catTraits){
   switch (catTraits[0]) {
@@ -19,7 +19,7 @@ export default function Card(props){
  }
 
  function nameTooLong(name){
-  const maxLength = 12;
+  const maxLength = 11;
   if (name.length <= maxLength) {
     return name;
   }
@@ -28,17 +28,33 @@ export default function Card(props){
   }
 }
 
+// the API traits data contains a lot of capitalization errors and trailing white space; this sanitizes that before rendering the data
+
+function displayCatTraits(catTraits,index){
+  const removedWhitespaceTrait = catTraits[index].trim();
+  const sanitizedTrait = removedWhitespaceTrait.charAt(0).toUpperCase() + removedWhitespaceTrait.substr(1).split(" ")[0];
+    return sanitizedTrait;
+}
+
+function getCardIndex(props){
+  if (props.id === 0){
+    return "match"
+  } else {
+    return "top"
+  }
+}
+
 return (
   <article>
-    <div className="match-card">
+    <div className={`match-card _${props.id} ${getCardIndex(props)}`}>
         <div className="burst"><div className="tagline">{getTagline(catTraits)}</div></div>
-      <img src={props.image_url} alt='A photo of a cat' className="cat-head-frame" />
+      <img src={props.image_url} alt='' className="cat-head-frame"/>
     <h1 className="cat-name">{nameTooLong(catName)}, <span className="cat-country">{props.origin}</span></h1>
-    <p className="profile">{props.description}</p>
+    <p className="profile">{props.description.replace(/\\/g, "").split('.', 3).join('.') + "."}</p>
 <ul className="attributes">
-  <li>{catTraits[0]}</li>
-  <li>{catTraits[1]}</li>
-  <li>{catTraits[2]}</li>
+  <li>{displayCatTraits(catTraits,0)}</li>
+  <li>{displayCatTraits(catTraits,1)}</li>
+  <li>{displayCatTraits(catTraits,2)}</li>
 </ul>
   </div>
   </article>
